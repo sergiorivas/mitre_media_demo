@@ -1,10 +1,10 @@
 version: '3'
 services:
-  rails_app:
-    build: ./senteces_with_entities
+  sentences_app:
+    build: ./sentences_app
     command: sh -c "rm -f tmp/pids/server.pid && bundle && bundle exec rake db:prepare && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - ./senteces_with_entities:/app
+      - ./sentences_app:/app
     ports:
       - "3000:3000"
     environment:
