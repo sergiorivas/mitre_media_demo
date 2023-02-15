@@ -10,8 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_15_165610) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "entity_types", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sentence_parts", force: :cascade do |t|
+    t.string "text"
+    t.integer "order"
+    t.bigint "sentence_id"
+    t.bigint "entity_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["entity_type_id"], name: "index_sentence_parts_on_entity_type_id"
+    t.index ["sentence_id"], name: "index_sentence_parts_on_sentence_id"
+  end
+
+  create_table "sentences", force: :cascade do |t|
+    t.string "text", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
