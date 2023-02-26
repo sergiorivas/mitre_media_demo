@@ -5,4 +5,10 @@ class SentencePart < ApplicationRecord
   def entity?
     !!entity_type
   end
+
+  def entity_type_name
+    return nil unless entity?
+
+    entity_type.name
+  end
 end
