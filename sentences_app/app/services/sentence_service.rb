@@ -4,6 +4,7 @@
   def create_sentence(text: )
     sentence = Sentence.create(text:)
     sentence.create_parts
+    sentence
   end
 
   def define_entity(sentence_part_id:, entity_type_name:)
