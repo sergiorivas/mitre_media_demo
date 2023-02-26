@@ -19,6 +19,14 @@
     end
 
     sentence_part.update(entity_type:)
+    entity_type
+  end
+
+  def reset_part(sentence_part_id:)
+    sentence_part = SentencePart.find_by(id: sentence_part_id)
+    return unless sentence_part
+
+    sentence_part.update(entity_type: nil)
   end
 
  end
