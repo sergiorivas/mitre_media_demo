@@ -3,9 +3,12 @@ module SentencesHelper
     return sentence_part.text unless sentence_part.entity?
 
     %{
-      <span class='rounded-lg border-black py-2 ml-1 px-3 bg-gray-100 font-semibold'>
+      <span
+        class='rounded-lg border-black py-2 mx-1 px-3 font-semibold'
+        style='background-color: ##{sentence_part.entity_type.color}'
+      >
         #{sentence_part.text}
-        <span class='ml-2 font-bold' style='color: ##{sentence_part.entity_type.color}'>
+        <span class='mx-1 font-bold'>
           #{sentence_part.entity_type.name}
         </span>
       </span>
