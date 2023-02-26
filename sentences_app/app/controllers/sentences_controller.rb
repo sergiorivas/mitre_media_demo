@@ -6,10 +6,6 @@ class SentencesController < ApplicationController
     @sentences = Sentence.all
   end
 
-  # GET /sentences/1 or /sentences/1.json
-  def show
-  end
-
   # GET /sentences/new
   def new
     @sentence = Sentence.new
@@ -19,42 +15,31 @@ class SentencesController < ApplicationController
   def edit
   end
 
-  # POST /sentences or /sentences.json
+  # POST /sentences
   def create
     @sentence = Sentence.new(sentence_params)
-
-    respond_to do |format|
-      if @sentence.save
-        format.html { redirect_to sentence_url(@sentence), notice: "Sentence was successfully created." }
-        format.json { render :show, status: :created, location: @sentence }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @sentence.errors, status: :unprocessable_entity }
-      end
+    if @sentence.save
+      redirect_to sentence_url(@sentence), notice: "Sentence was successfully created."
+      return
     end
+
+    render :new, status: :unprocessable_entity
   end
 
-  # PATCH/PUT /sentences/1 or /sentences/1.json
+  # PATCH/PUT /sentences/1
   def update
-    respond_to do |format|
-      if @sentence.update(sentence_params)
-        format.html { redirect_to sentence_url(@sentence), notice: "Sentence was successfully updated." }
-        format.json { render :show, status: :ok, location: @sentence }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @sentence.errors, status: :unprocessable_entity }
-      end
+    if @sentence.update(sentence_params)
+      redirect_to sentence_url(@sentence), notice: "Sentence was successfully updated."
+      return
     end
+
+    render :edit, status: :unprocessable_entity
   end
 
-  # DELETE /sentences/1 or /sentences/1.json
+  # DELETE /sentences/1
   def destroy
     @sentence.destroy
-
-    respond_to do |format|
-      format.html { redirect_to sentences_url, notice: "Sentence was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to sentences_url, notice: "Sentence was successfully destroyed."
   end
 
   private
