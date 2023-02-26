@@ -1,7 +1,7 @@
  module SentenceService
   module_function
 
-  def create_sentence(text: )
+  def create_sentence(text:)
     sentence = Sentence.create(text:)
     sentence.create_parts
     sentence

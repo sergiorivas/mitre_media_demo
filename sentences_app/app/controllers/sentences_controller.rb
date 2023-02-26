@@ -18,18 +18,14 @@ class SentencesController < ApplicationController
   # POST /sentences
   def create
     @sentence = Sentence.new(sentence_params)
-    if @sentence.save
-      redirect_to sentence_url(@sentence), notice: "Sentence was successfully created."
-      return
-    end
-
-    render :new, status: :unprocessable_entity
+    new_sentence = SentenceService.create_sentence(text: @sentence.text)
+    redirect_to edit_sentence_url(new_sentence), notice: "Sentence was successfully created."
   end
 
   # PATCH/PUT /sentences/1
   def update
     if @sentence.update(sentence_params)
-      redirect_to sentence_url(@sentence), notice: "Sentence was successfully updated."
+      redirect_to edit_sentence_url(@sentence), notice: "Sentence was successfully updated."
       return
     end
 

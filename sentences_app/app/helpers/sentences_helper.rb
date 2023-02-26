@@ -4,7 +4,7 @@ module SentencesHelper
 
     %{
       <span
-        class='rounded-lg border-black py-2 mx-1 px-3 font-semibold'
+        class='rounded-lg border-black py-2 mx-1 px-3'
         style='background-color: ##{sentence_part.entity_type.color}'
       >
         #{sentence_part.text}
