@@ -1,13 +1,17 @@
 <div id="<%= dom_id sentence %>">
-  <p class="my-5">
-    <% sentence.sentence_parts.each do |sentence_part|%>
-      <%= decorate_sentence_part(sentence_part) %>
-    <% end %>
-  </p>
+  <div class="my-5 flex justify-between items-center">
+    <div>
+      <% sentence.sentence_parts.each do |sentence_part|%>
+        <%= decorate_sentence_part(sentence_part) %>
+      <% end %>
+    </div>
+
 
   <% if action_name != "show" %>
+    <div>
     <%= link_to "Show this sentence", sentence, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to 'Edit this sentence', edit_sentence_path(sentence), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+    <div>
   <% end %>
+  </div>
 </div>
