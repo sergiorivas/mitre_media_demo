@@ -1,7 +1,8 @@
 <div id="<%= dom_id sentence %>">
   <p class="my-5">
-    <strong class="block font-medium mb-1">Text:</strong>
-    <%= sentence.text %>
+    <% sentence.sentence_parts.each do |sentence_part|%>
+      <%= decorate_sentence_part(sentence_part) %>
+    <% end %>
   </p>
 
   <% if action_name != "show" %>

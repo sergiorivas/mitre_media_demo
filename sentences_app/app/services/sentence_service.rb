@@ -12,7 +12,10 @@
 
     name = EntityType.sanitize(text: entity_type_name)
     entity_type = EntityType.find_by(name:)
-    entity_type = EntityType.create(name:) unless entity_type
+    unless entity_type
+      color = EntityType.generate_color
+      entity_type = EntityType.create(name:, color:)
+    end
 
     sentence_part.update(entity_type:)
   end
