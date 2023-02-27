@@ -10,8 +10,8 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe SentencesHelper, type: :helper do
-  context "#decorate_sentence_part" do
+RSpec.describe SentencesHelper do
+  describe "#decorate_sentence_part" do
     it "manages a part without entity"
     it "manages an entity part"
   end

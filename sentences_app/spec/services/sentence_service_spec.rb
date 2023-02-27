@@ -21,5 +21,4 @@ RSpec.describe SentenceService, type: :service do
   context "resetting the entity" do
     it "removes the association"
   end
-
 end

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "/sentences", type: :request do
-
+RSpec.describe "/sentences" do
   describe "GET /index" do
     it "renders a successful response" do
       get sentences_url

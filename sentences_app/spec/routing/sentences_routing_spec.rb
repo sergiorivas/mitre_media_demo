@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe SentencesController, type: :routing do
+RSpec.describe SentencesController do
   describe "routing" do
     it "routes to #index" do
       expect(get: "/sentences").to route_to("sentences#index")
