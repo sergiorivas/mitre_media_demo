@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :entity_type do
-    name { "MyString" }
-    color { "MyString" }
+    name { "SUBJECT" }
+    color { "000000" }
   end
 end
