@@ -3,6 +3,8 @@
 ## Funtional Demo
 - https://share.getcloudapp.com/v1uPKXw6
 
+## Technical Demo
+- https://share.getcloudapp.com/OAuowwoY
 
 ## Includes
 - Dockerized Rails
@@ -44,7 +46,7 @@ Open `http://localhost:3000`
 Once you have your server running
 
 ```
-docker-compose sentences_app rspec --format=documentation
+docker-compose exec sentences_app rspec --format=documentation
 ```
 
 Output
