@@ -1,18 +1,20 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the SentencesHelper. For example:
-#
-# describe SentencesHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe SentencesHelper do
   describe "#decorate_sentence_part" do
-    it "manages a part without entity"
-    it "manages an entity part"
+    let(:entity_type_name) { "SUBJECT" }
+    let(:sentence) { SentenceService.create_sentence(text:) }
+    let(:text) { "This is my test" }
+    let(:sentence_part) { sentence.sentence_parts.find_by(text: "test") }
+
+    it "manages a part without entity" do
+      expect(helper.decorate_sentence_part(sentence_part)).to eq(sentence_part.text)
+    end
+
+    it "manages an entity part" do
+      SentenceService.define_entity(sentence_part_id: sentence_part.id, entity_type_name:)
+      sentence_part.reload
+      expect(helper.decorate_sentence_part(sentence_part).include?("span")).to be(true)
+    end
   end
 end
