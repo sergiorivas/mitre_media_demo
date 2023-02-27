@@ -9,17 +9,17 @@ RSpec.describe "/sentences" do
   end
 
   describe "DELETE /destroy" do
-    it "destroys the requested sentence" # do
-    #   sentence = Sentence.create! valid_attributes
-    #   expect {
-    #     delete sentence_url(sentence)
-    #   }.to change(Sentence, :count).by(-1)
-    # end
+    let!(:sentence) { SentenceService.create_sentence(text: "This is my test") }
 
-    it "redirects to the sentences list" # do
-    #   sentence = Sentence.create! valid_attributes
-    #   delete sentence_url(sentence)
-    #   expect(response).to redirect_to(sentences_url)
-    # end
+    it "destroys the requested sentence" do
+      expect do
+        delete sentence_url(sentence)
+      end.to change(Sentence, :count).by(-1)
+    end
+
+    it "redirects to the sentences list" do
+      delete sentence_url(sentence)
+      expect(response).to redirect_to(sentences_url)
+    end
   end
 end
