@@ -1,5 +1,5 @@
 class SentencesController < ApplicationController
-  before_action :set_sentence, only: %i[ show edit update destroy ]
+  before_action :set_sentence, only: %i[edit update destroy]
 
   # GET /sentences or /sentences.json
   def index
@@ -12,8 +12,7 @@ class SentencesController < ApplicationController
   end
 
   # GET /sentences/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /sentences
   def create
@@ -39,13 +38,14 @@ class SentencesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sentence
-      @sentence = Sentence.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def sentence_params
-      params.require(:sentence).permit(:text)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_sentence
+    @sentence = Sentence.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def sentence_params
+    params.require(:sentence).permit(:text)
+  end
 end

@@ -1,4 +1,4 @@
- module SentenceService
+module SentenceService
   module_function
 
   def create_sentence(text:)
@@ -28,5 +28,4 @@
 
     sentence_part.update(entity_type: nil)
   end
-
- end
+end

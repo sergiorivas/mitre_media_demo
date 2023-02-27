@@ -1,17 +1,17 @@
 <div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing sentence</h1>
-
   <% if notice.present? %>
-    <p class="my-2 py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <p class="my-2 py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block w-full text-center" id="notice"><%= notice %></p>
   <% end %>
 
-  <h2 class="font-bold text-2xl mt-2">Sentence</h2>
+  <h1 class="font-bold text-4xl">Editing sentence</h1>
+
+  <h2 class="font-bold text-2xl mt-2 text-blue-600">Sentence</h2>
   <%= render @sentence %>
 
-  <h2 class="font-bold text-2xl mt-6">Parts</h2>
+  <h2 class="font-bold text-2xl mt-6 text-blue-600">Parts</h2>
   <ul>
     <% @sentence.sentence_parts.each do |sentence_part|%>
-      <li class="my-5 flex justify-between items-center">
+      <li class="my-5 flex justify-between items-center rounded-md border border-blue-200 p-3">
         <div>
           <%= sentence_part.text  %>
         </div>
@@ -21,7 +21,7 @@
                 <%= form.text_field :entity_type_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"%>
               </div>
               <div class="inline-block ml-2">
-                <%= form.submit 'Set as an entitty', class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+                <%= form.submit '✏️ Set as an entitty', class: "cursor-pointer mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium transition ease-in-out hover:-translate-y-1 hover:scale-110" %>
               </div>
             <% end %>
         </div>
@@ -29,5 +29,5 @@
     <% end %>
   </ul>
 
-  <%= link_to "⬅️ Back to sentences", sentences_path, class: "mt-5 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to "⬅️ Back to sentences", sentences_path, class: "mt-5 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium transition ease-in-out hover:-translate-y-1 hover:scale-110" %>
 </div>

@@ -2,11 +2,11 @@ class Sentence < ApplicationRecord
   has_many :sentence_parts, -> { order(:order) }, dependent: :destroy
 
   def parts_created?
-    sentence_parts.size > 0
+    sentence_parts.size.positive?
   end
 
   def create_parts
-    text.split(" ").each_with_index do |part, index|
+    text.split.each_with_index do |part, index|
       SentencePart.create(
         text: part,
         sentence: self,

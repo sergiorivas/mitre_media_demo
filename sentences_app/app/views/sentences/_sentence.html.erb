@@ -1,4 +1,4 @@
-<div id="<%= dom_id sentence %>">
+<div id="<%= dom_id sentence %>" class="rounded-md border border-gray-400 p-3 my-2">
   <div class="my-5 flex justify-between items-center">
     <div>
       <% sentence.sentence_parts.each do |sentence_part|%>
@@ -9,9 +9,9 @@
 
   <% if action_name != "edit" %>
     <div>
-    <%= link_to '✏️ Edit', edit_sentence_path(sentence), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to '✏️ Edit', edit_sentence_path(sentence), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium transition ease-in-out hover:-translate-y-1 hover:scale-110" %>
     <div class="inline-block ml-2">
-      <%= button_to '🗑️ Delete', sentence_path(sentence), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      <%= button_to '🗑️ Delete', sentence_path(sentence), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium transition ease-in-out hover:-translate-y-1 hover:scale-110" %>
     </div>
 
     </div>
