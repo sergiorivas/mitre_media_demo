@@ -11,5 +11,8 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe SentencesHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "#decorate_sentence_part" do
+    it "manages a part without entity"
+    it "manages an entity part"
+  end
 end
