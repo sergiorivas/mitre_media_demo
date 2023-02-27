@@ -18,7 +18,6 @@ RSpec.describe SentencesController, type: :routing do
       expect(get: "/sentences/1/edit").to route_to("sentences#edit", id: "1")
     end
 
-
     it "routes to #create" do
       expect(post: "/sentences").to route_to("sentences#create")
     end
